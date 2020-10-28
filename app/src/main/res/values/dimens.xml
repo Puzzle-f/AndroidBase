@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txtSize">30sp</dimen>
+    <dimen name="textViewSize">18sp</dimen>
+    <dimen name="tv_tv_tv_textSize">24sp</dimen>
+</resources>

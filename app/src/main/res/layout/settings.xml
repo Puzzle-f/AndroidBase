@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/future"
         android:layout_width="207dp"
         android:layout_height="364dp"
         android:layout_marginEnd="4dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/future" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxWindSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -31,14 +31,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBoxPressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="Давление"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toTopOf="@+id/checkBox" />
+        app:layout_constraintStart_toStartOf="@+id/checkBoxWindSpeed"
+        app:layout_constraintTop_toTopOf="@+id/checkBoxWindSpeed" />
 
     <Switch
         android:id="@+id/switch1"
@@ -47,6 +47,37 @@
         android:layout_marginTop="48dp"
         android:text="Тема ночная"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox2"
-        app:layout_constraintTop_toTopOf="@+id/checkBox2" />
+        app:layout_constraintStart_toStartOf="@+id/checkBoxPressure"
+        app:layout_constraintTop_toTopOf="@+id/checkBoxPressure" />
+
+    <Button
+        android:id="@+id/okSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:onClick="okSettingOnClick"
+        android:text="Ok"
+        app:backgroundTint="#F81212"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:text="Выберете город"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <Spinner
+        android:id="@+id/cities"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

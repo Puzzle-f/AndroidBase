@@ -8,4 +8,8 @@
     <string name="switch2">Switch2</string>
     <string name="textview_textview_tv_tv__">TextView TextView TextView TextView</string>
     <string name="about_title"></string>
+    <string name="weather">Просмотр погоды</string>
+    <string name="citie">Ваш город</string>
+    <string name="infoCity">О городе</string>
+
 </resources>

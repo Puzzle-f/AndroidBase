@@ -11,5 +11,9 @@
     <string name="weather">Просмотр погоды</string>
     <string name="citie">Ваш город</string>
     <string name="infoCity">О городе</string>
+    <string name="updateWeather">Обновить погоду</string>
+    <string name="buttonSettings">Настройки</string>
+    <string name="textVeiwWeather">Погода</string>
+    <string name="textViewCity">Город</string>
 
 </resources>

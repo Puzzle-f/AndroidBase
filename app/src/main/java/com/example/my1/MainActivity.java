@@ -1,8 +1,5 @@
 package com.example.my1;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -12,8 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import static com.example.my1.SaveSettings.firstVisit;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import static com.example.my1.SaveSettings.defaultSetting;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,27 +29,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         counter++;
         super.onStart();
-        getParametersCity();
         defaultSetting();
+        getParametersCity();
         Log.i(TAG, "onStart");
         Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show();
     }
 
     private void getParametersCity(){
-        if(!firstVisit){
-            Log.i(TAG, "getParametersCity, counter " + counter);
-            String city = getIntent().getExtras().getString(SaveSettings.CITY);
-            TextView textView = findViewById(R.id.cityMain);
-            textView.setText(city);
+        try {
+                Log.i(TAG, "getParametersCity, counter " + counter);
+                String city = getIntent().getExtras().getString(SaveSettings.CITY);
+                TextView textView = findViewById(R.id.cityMain);
+                textView.setText(city);
+        } catch (NullPointerException e){
+            defaultSetting();
         }
     }
 
     private void defaultSetting(){
-        if(firstVisit){
+        if(defaultSetting){
             TextView textView = findViewById(R.id.cityMain);
-            textView.setText(SettingsActivity.cities[1]);
+            textView.setText(SaveSettings.cities[1]);
             Log.i(TAG, "defaultSetting");
-            firstVisit = false;
+            defaultSetting = false;
         }
     }
 
@@ -84,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
     public void show(View view){
         Toast.makeText(this, R.string.weather, Toast.LENGTH_SHORT).show();
         Log.i(TAG, "Просмотр погоды");
-        Toast.makeText(this, "show", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Температура воздуха +25", Toast.LENGTH_SHORT).show();
+        TextView textView = findViewById(R.id.weather);
+        textView.setText(SaveSettings.weather);
     }
 
     public void onClick(View view) {
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.i(TAG, "onStop");
         Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i(TAG, "onDestroy");
         Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     public void infoCity(View view) {

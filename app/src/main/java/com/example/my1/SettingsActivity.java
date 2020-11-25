@@ -21,7 +21,6 @@ public class SettingsActivity extends Activity {
     private CheckBox checkBoxWindSpeed;
     private CheckBox checkBoxPressure;
     private boolean checkBoxWindSpeedIsChecked;
-    static String[] cities = {"Ростов-на-Дону", "Москва", "Санкт-Петербург", "Сочи", "Хабаровск", "Россошь"};
     private static final String KEY_WIN_SPEED = "checkBoxWindSpeedIsChecked";
     TextView selection;
 
@@ -31,7 +30,7 @@ public class SettingsActivity extends Activity {
         setContentView(R.layout.settings);
         selection = (TextView) findViewById(R.id.settings);
         Spinner spinner = (Spinner) findViewById(R.id.cities);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cities);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SaveSettings.cities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
@@ -79,7 +78,7 @@ public class SettingsActivity extends Activity {
         intent.putExtra(SaveSettings.CITY, city());
         startActivity(intent);
         Log.i(TAG, "onClick Ok_Settings");
-        Toast.makeText(this, "onClick Ok_Settings", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "onClick Ok_Settings", Toast.LENGTH_SHORT).show();
     }
 
     public String city(){
